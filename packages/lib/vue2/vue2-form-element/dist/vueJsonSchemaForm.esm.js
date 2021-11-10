@@ -10845,27 +10845,51 @@ var ArrayFieldNormal = {
         showDescription = _getUiOptions.showDescription,
         fieldClass = _getUiOptions.fieldClass,
         fieldAttrs = _getUiOptions.fieldAttrs,
-        fieldStyle = _getUiOptions.fieldStyle;
+        fieldStyle = _getUiOptions.fieldStyle,
+        listRenderer = _getUiOptions.listRenderer;
 
-    var arrayItemsVNodeList = itemsFormData.map(function (item, index) {
-      var tempUiSchema = replaceArrayIndex({
-        schema: schema.items,
-        uiSchema: uiSchema.items
-      }, index);
-      return {
-        key: item.key,
-        vNode: h(SchemaField, {
+    var children = null;
+
+    if (listRenderer) {
+      children = h(listRenderer, {
+        props: context.props,
+        on: context.listeners
+      });
+    } else {
+      var arrayItemsVNodeList = itemsFormData.map(function (item, index) {
+        var tempUiSchema = replaceArrayIndex({
+          schema: schema.items,
+          uiSchema: uiSchema.items
+        }, index);
+        return {
           key: item.key,
-          props: _objectSpread2(_objectSpread2({}, context.props), {}, {
-            schema: schema.items,
-            required: ![].concat(schema.items.type).includes('null'),
-            uiSchema: _objectSpread2(_objectSpread2({}, uiSchema.items), tempUiSchema),
-            errorSchema: errorSchema.items,
-            curNodePath: computedCurPath(curNodePath, index)
+          vNode: h(SchemaField, {
+            key: item.key,
+            props: _objectSpread2(_objectSpread2({}, context.props), {}, {
+              schema: schema.items,
+              required: ![].concat(schema.items.type).includes('null'),
+              uiSchema: _objectSpread2(_objectSpread2({}, uiSchema.items), tempUiSchema),
+              errorSchema: errorSchema.items,
+              curNodePath: computedCurPath(curNodePath, index)
+            })
           })
-        })
-      };
-    });
+        };
+      });
+      children = h(ArrayOrderList, {
+        props: {
+          vNodeList: arrayItemsVNodeList,
+          showIndexNumber: showIndexNumber,
+          addable: addable,
+          sortable: sortable,
+          removable: removable,
+          maxItems: schema.maxItems,
+          minItems: schema.minItems,
+          globalOptions: globalOptions
+        },
+        on: context.listeners
+      });
+    }
+
     return h(__vue_component__, {
       props: {
         title: title,
@@ -10877,19 +10901,7 @@ var ArrayFieldNormal = {
       class: _objectSpread2(_objectSpread2({}, context.data.class), fieldClass),
       attrs: fieldAttrs,
       style: fieldStyle
-    }, [h(ArrayOrderList, {
-      props: {
-        vNodeList: arrayItemsVNodeList,
-        showIndexNumber: showIndexNumber,
-        addable: addable,
-        sortable: sortable,
-        removable: removable,
-        maxItems: schema.maxItems,
-        minItems: schema.minItems,
-        globalOptions: globalOptions
-      },
-      on: context.listeners
-    })]);
+    }, [children]);
   }
 };
 
