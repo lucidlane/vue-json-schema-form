@@ -9952,26 +9952,14 @@ var __vue_render__$4 = function __vue_render__() {
   var _c = _vm._self._c || _h;
 
   return _c("svg", {
-    staticClass: "genFormIcon genFormIcon-plus",
+    staticClass: "genFormIcon genFormIcon-qs",
     attrs: {
-      t: "1551322312294",
-      viewBox: "0 0 1024 1024",
-      version: "1.1",
       xmlns: "http://www.w3.org/2000/svg",
-      "p-id": "10297",
-      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-      width: "200",
-      height: "200"
+      viewBox: "0 0 1024 1024"
     }
   }, [_c("path", {
     attrs: {
-      d: "M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z",
-      "p-id": "10298"
-    }
-  }), _vm._v(" "), _c("path", {
-    attrs: {
-      d: "M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z",
-      "p-id": "10299"
+      d: "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 708c-22.1\n        0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm62.9-219.5a48.3 48.3 0 0\n        0-30.9 44.8V620c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-21.5c0-23.1 6.7-45.9 19.9-64.9 12.9-18.6 30.9-32.8\n        52.1-40.9 34-13.1 56-41.6 56-72.7 0-44.1-43.1-80-96-80s-96 35.9-96 80v7.6c0 4.4-3.6\n        8-8 8h-48c-4.4 0-8-3.6-8-8V420c0-39.3 17.2-76 48.4-103.3C430.4 290.4 470 276 512 276s81.6 14.5 111.6\n        40.7C654.8 344 672 380.7 672 420c0 57.8-38.1 109.8-97.1 132.5z"
     }
   })]);
 };
@@ -10000,54 +9988,6 @@ var __vue_component__$4 = /*#__PURE__*/normalizeComponent_1({
   render: __vue_render__$4,
   staticRenderFns: __vue_staticRenderFns__$4
 }, __vue_inject_styles__$4, {}, __vue_scope_id__$4, __vue_is_functional_template__$4, __vue_module_identifier__$4, false, undefined, undefined, undefined);
-
-/* script */
-
-/* template */
-var __vue_render__$5 = function __vue_render__() {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c("svg", {
-    staticClass: "genFormIcon genFormIcon-qs",
-    attrs: {
-      xmlns: "http://www.w3.org/2000/svg",
-      viewBox: "0 0 1024 1024"
-    }
-  }, [_c("path", {
-    attrs: {
-      d: "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 708c-22.1\n        0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm62.9-219.5a48.3 48.3 0 0\n        0-30.9 44.8V620c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-21.5c0-23.1 6.7-45.9 19.9-64.9 12.9-18.6 30.9-32.8\n        52.1-40.9 34-13.1 56-41.6 56-72.7 0-44.1-43.1-80-96-80s-96 35.9-96 80v7.6c0 4.4-3.6\n        8-8 8h-48c-4.4 0-8-3.6-8-8V420c0-39.3 17.2-76 48.4-103.3C430.4 290.4 470 276 512 276s81.6 14.5 111.6\n        40.7C654.8 344 672 380.7 672 420c0 57.8-38.1 109.8-97.1 132.5z"
-    }
-  })]);
-};
-
-var __vue_staticRenderFns__$5 = [];
-__vue_render__$5._withStripped = true;
-/* style */
-
-var __vue_inject_styles__$5 = undefined;
-/* scoped */
-
-var __vue_scope_id__$5 = undefined;
-/* module identifier */
-
-var __vue_module_identifier__$5 = undefined;
-/* functional template */
-
-var __vue_is_functional_template__$5 = false;
-/* style inject */
-
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-var __vue_component__$5 = /*#__PURE__*/normalizeComponent_1({
-  render: __vue_render__$5,
-  staticRenderFns: __vue_staticRenderFns__$5
-}, __vue_inject_styles__$5, {}, __vue_scope_id__$5, __vue_is_functional_template__$5, __vue_module_identifier__$5, false, undefined, undefined, undefined);
 
 var Widget = {
   name: 'Widget',
@@ -10260,7 +10200,7 @@ var Widget = {
         placement: 'top',
         trigger: 'hover'
       }
-    }, [descriptionVNode, h(__vue_component__$5, {
+    }, [descriptionVNode, h(__vue_component__$4, {
       slot: 'reference'
     })]) : null; // form-item style
 
@@ -10802,11 +10742,11 @@ var ArrayOrderList = {
           });
         }
       }
-    }, [h(__vue_component__$4, {
-      style: {
-        marginRight: '5px'
-      }
-    }), this.maxItems ? "( ".concat(this.vNodeList.length, " / ").concat(this.maxItems, " )") : ''])])]));
+    }, ['Add new row' // h(IconPlus, {
+    //     style: { marginRight: '5px' }
+    // }),
+    // this.maxItems ? `( ${this.vNodeList.length} / ${this.maxItems} )` : ''
+    ])])]));
   }
 };
 
@@ -10849,43 +10789,44 @@ var ArrayFieldNormal = {
         listRenderer = _getUiOptions.listRenderer;
 
     var children = null;
+    var arrayItemsVNodeList = itemsFormData.map(function (item, index) {
+      var tempUiSchema = replaceArrayIndex({
+        schema: schema.items,
+        uiSchema: uiSchema.items
+      }, index);
+      return {
+        key: item.key,
+        vNode: h(SchemaField, {
+          key: item.key,
+          props: _objectSpread2(_objectSpread2({}, context.props), {}, {
+            schema: schema.items,
+            required: ![].concat(schema.items.type).includes('null'),
+            uiSchema: _objectSpread2(_objectSpread2({}, uiSchema.items), tempUiSchema),
+            errorSchema: errorSchema.items,
+            curNodePath: computedCurPath(curNodePath, index)
+          })
+        })
+      };
+    });
+    var mainProps = {
+      vNodeList: arrayItemsVNodeList,
+      showIndexNumber: showIndexNumber,
+      addable: addable,
+      sortable: sortable,
+      removable: removable,
+      maxItems: schema.maxItems,
+      minItems: schema.minItems,
+      globalOptions: globalOptions
+    };
 
     if (listRenderer) {
       children = h(listRenderer, {
-        props: context.props,
+        props: _objectSpread2(_objectSpread2({}, context.props), mainProps),
         on: context.listeners
       });
     } else {
-      var arrayItemsVNodeList = itemsFormData.map(function (item, index) {
-        var tempUiSchema = replaceArrayIndex({
-          schema: schema.items,
-          uiSchema: uiSchema.items
-        }, index);
-        return {
-          key: item.key,
-          vNode: h(SchemaField, {
-            key: item.key,
-            props: _objectSpread2(_objectSpread2({}, context.props), {}, {
-              schema: schema.items,
-              required: ![].concat(schema.items.type).includes('null'),
-              uiSchema: _objectSpread2(_objectSpread2({}, uiSchema.items), tempUiSchema),
-              errorSchema: errorSchema.items,
-              curNodePath: computedCurPath(curNodePath, index)
-            })
-          })
-        };
-      });
       children = h(ArrayOrderList, {
-        props: {
-          vNodeList: arrayItemsVNodeList,
-          showIndexNumber: showIndexNumber,
-          addable: addable,
-          sortable: sortable,
-          removable: removable,
-          maxItems: schema.maxItems,
-          minItems: schema.minItems,
-          globalOptions: globalOptions
-        },
+        props: mainProps,
         on: context.listeners
       });
     }
@@ -11880,7 +11821,7 @@ var script$1 = {
 var __vue_script__$1 = script$1;
 /* template */
 
-var __vue_render__$6 = function __vue_render__() {
+var __vue_render__$5 = function __vue_render__() {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -11897,30 +11838,30 @@ var __vue_render__$6 = function __vue_render__() {
   }), 1);
 };
 
-var __vue_staticRenderFns__$6 = [];
-__vue_render__$6._withStripped = true;
+var __vue_staticRenderFns__$5 = [];
+__vue_render__$5._withStripped = true;
 /* style */
 
-var __vue_inject_styles__$6 = undefined;
+var __vue_inject_styles__$5 = undefined;
 /* scoped */
 
-var __vue_scope_id__$6 = undefined;
+var __vue_scope_id__$5 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$6 = undefined;
+var __vue_module_identifier__$5 = undefined;
 /* functional template */
 
-var __vue_is_functional_template__$6 = false;
+var __vue_is_functional_template__$5 = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$6 = /*#__PURE__*/normalizeComponent_1({
-  render: __vue_render__$6,
-  staticRenderFns: __vue_staticRenderFns__$6
-}, __vue_inject_styles__$6, __vue_script__$1, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, undefined, undefined);
+var __vue_component__$5 = /*#__PURE__*/normalizeComponent_1({
+  render: __vue_render__$5,
+  staticRenderFns: __vue_staticRenderFns__$5
+}, __vue_inject_styles__$5, __vue_script__$1, __vue_scope_id__$5, __vue_is_functional_template__$5, __vue_module_identifier__$5, false, undefined, undefined, undefined);
 
 //
 //
@@ -11953,7 +11894,7 @@ var script$2 = {
 var __vue_script__$2 = script$2;
 /* template */
 
-var __vue_render__$7 = function __vue_render__() {
+var __vue_render__$6 = function __vue_render__() {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -11970,30 +11911,30 @@ var __vue_render__$7 = function __vue_render__() {
   }), 1);
 };
 
-var __vue_staticRenderFns__$7 = [];
-__vue_render__$7._withStripped = true;
+var __vue_staticRenderFns__$6 = [];
+__vue_render__$6._withStripped = true;
 /* style */
 
-var __vue_inject_styles__$7 = undefined;
+var __vue_inject_styles__$6 = undefined;
 /* scoped */
 
-var __vue_scope_id__$7 = undefined;
+var __vue_scope_id__$6 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$7 = undefined;
+var __vue_module_identifier__$6 = undefined;
 /* functional template */
 
-var __vue_is_functional_template__$7 = false;
+var __vue_is_functional_template__$6 = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$7 = /*#__PURE__*/normalizeComponent_1({
-  render: __vue_render__$7,
-  staticRenderFns: __vue_staticRenderFns__$7
-}, __vue_inject_styles__$7, __vue_script__$2, __vue_scope_id__$7, __vue_is_functional_template__$7, __vue_module_identifier__$7, false, undefined, undefined, undefined);
+var __vue_component__$6 = /*#__PURE__*/normalizeComponent_1({
+  render: __vue_render__$6,
+  staticRenderFns: __vue_staticRenderFns__$6
+}, __vue_inject_styles__$6, __vue_script__$2, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, undefined, undefined);
 
 //
 //
@@ -12025,7 +11966,7 @@ var script$3 = {
 var __vue_script__$3 = script$3;
 /* template */
 
-var __vue_render__$8 = function __vue_render__() {
+var __vue_render__$7 = function __vue_render__() {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -12043,30 +11984,30 @@ var __vue_render__$8 = function __vue_render__() {
   }), 1);
 };
 
-var __vue_staticRenderFns__$8 = [];
-__vue_render__$8._withStripped = true;
+var __vue_staticRenderFns__$7 = [];
+__vue_render__$7._withStripped = true;
 /* style */
 
-var __vue_inject_styles__$8 = undefined;
+var __vue_inject_styles__$7 = undefined;
 /* scoped */
 
-var __vue_scope_id__$8 = undefined;
+var __vue_scope_id__$7 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$8 = undefined;
+var __vue_module_identifier__$7 = undefined;
 /* functional template */
 
-var __vue_is_functional_template__$8 = false;
+var __vue_is_functional_template__$7 = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$8 = /*#__PURE__*/normalizeComponent_1({
-  render: __vue_render__$8,
-  staticRenderFns: __vue_staticRenderFns__$8
-}, __vue_inject_styles__$8, __vue_script__$3, __vue_scope_id__$8, __vue_is_functional_template__$8, __vue_module_identifier__$8, false, undefined, undefined, undefined);
+var __vue_component__$7 = /*#__PURE__*/normalizeComponent_1({
+  render: __vue_render__$7,
+  staticRenderFns: __vue_staticRenderFns__$7
+}, __vue_inject_styles__$7, __vue_script__$3, __vue_scope_id__$7, __vue_is_functional_template__$7, __vue_module_identifier__$7, false, undefined, undefined, undefined);
 
 /**
  * Created by Liu.Jun on 2020/7/22 13:21.
@@ -12308,9 +12249,9 @@ var UploadWidget = {
 // }, {});
 
 var widgetComponents = {
-  CheckboxesWidget: __vue_component__$6,
-  RadioWidget: __vue_component__$7,
-  SelectWidget: __vue_component__$8,
+  CheckboxesWidget: __vue_component__$5,
+  RadioWidget: __vue_component__$6,
+  SelectWidget: __vue_component__$7,
   TimePickerWidget: TimePickerWidget,
   DatePickerWidget: DatePickerWidget,
   DateTimePickerWidget: DateTimePickerWidget,
