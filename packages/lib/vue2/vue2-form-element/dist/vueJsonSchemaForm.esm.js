@@ -8406,8 +8406,8 @@ function handleExpression(rootFormData, curNodePath, expression, fallBack) {
   if (matchExpression) {
     var code = matchExpression[1].trim(); // eslint-disable-next-line no-new-func
 
-    var fn = new Function('parentFormData', 'rootFormData', "return ".concat(code));
-    return fn(getPathVal$1(rootFormData, curNodePath, 1), rootFormData);
+    var fn = new Function('parentFormData', 'rootFormData', 'curNodePath', 'getPathVal', "return ".concat(code));
+    return fn(getPathVal$1(rootFormData, curNodePath, 1), rootFormData, curNodePath, getPathVal$1);
   } // 回退
 
 
@@ -10793,7 +10793,13 @@ var ArrayFieldNormal = {
       var tempUiSchema = replaceArrayIndex({
         schema: schema.items,
         uiSchema: uiSchema.items
-      }, index);
+      }, index); // Object.keys(schema.items.properties).forEach((key) => {
+      //     schema.items.properties[key] = Object.assign({}, schema.items.properties[key], {
+      //         'ui:disabled': true,
+      //         'ui:readonly': true
+      //     });
+      // });
+
       return {
         key: item.key,
         vNode: h(SchemaField, {

@@ -19,9 +19,9 @@ function handleExpression(rootFormData, curNodePath, expression, fallBack) {
         const code = matchExpression[1].trim();
 
         // eslint-disable-next-line no-new-func
-        const fn = new Function('parentFormData', 'rootFormData', `return ${code}`);
+        const fn = new Function('parentFormData', 'rootFormData', 'curNodePath', 'getPathVal', `return ${code}`);
 
-        return fn(getPathVal(rootFormData, curNodePath, 1), rootFormData);
+        return fn(getPathVal(rootFormData, curNodePath, 1), rootFormData, curNodePath, getPathVal);
     }
 
     // 回退
