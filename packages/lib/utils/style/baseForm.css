@@ -325,3 +325,31 @@
         }
     }
 }
+
+.layoutGrid {
+    .layoutColumn_w100 {
+        width: 100% !important;
+        flex-basis: 100% !important;;
+    }
+    .fieldGroupWrap_box {
+        width: 100%;
+        display: grid;
+        gap: var(--width-column-gutter);
+
+        &>div {
+            width: 100%;
+            flex-basis: 100%;
+        }
+        &>.genFormItem{
+            box-sizing: border-box;
+        }
+    }
+    @for $i from 1 through 10 {
+        &.layoutGrid-1 {
+            grid-template-columns: repeat($i, 1fr);
+            .arrayDataList {
+                grid-column: 1 / span $i;
+            }
+        }
+    }
+}

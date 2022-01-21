@@ -10,4 +10,12 @@
     .el-checkbox, .el-color-picker{
         vertical-align: top;
     }
+    .el-form-item__content {
+        .el-select,
+        .el-input,
+        .el-input-number {
+            display: block;
+            width: unset;
+        }
+    }
 }
