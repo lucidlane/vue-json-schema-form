@@ -9,6 +9,7 @@ module.exports = {
             path: ['src/common/css/'],
         }),
         require('postcss-mixins'),
+        require('postcss-for'),
         require('postcss-nested'),
         require('postcss-color-mod-function'),
         require('postcss-cssnext')({
