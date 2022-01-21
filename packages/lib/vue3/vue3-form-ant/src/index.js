@@ -61,6 +61,14 @@ const globalOptions = {
                         setFormRef, labelPosition, labelWidth, model, ...otherAttrs
                     } = attrs;
 
+                    if (otherAttrs.inline) {
+                        Object.assign(otherAttrs, {
+                            layout: 'inline',
+                            // labelCol: undefined,
+                            // wrapperCol: undefined
+                        });
+                    }
+
                     return h(vueUtils.resolveComponent('a-form'), {
                         ref: formRef,
                         model: model.value,
@@ -118,27 +126,21 @@ const globalOptions = {
         button: 'a-button',
         popover: defineComponent({
             setup(props, { attrs, slots }) {
-                const {
-                    default: contentSlot,
-                    reference: defaultSlot,
-                } = slots;
-
                 return () => h(vueUtils.resolveComponent('a-popover'), {
                     attrs
                 }, {
-                    default: defaultSlot,
-                    content: contentSlot,
+                    default: slots.reference,
+                    content: slots.default,
                 });
             }
         }),
-
     },
     HELPERS: {
         // 是否mini显示 description
         isMiniDes(formProps) {
             return formProps && (
                 ['left', 'right'].includes(formProps.labelPosition)
-                || formProps.layout === 'horizontal'
+                || formProps.layout === 'horizontal' || formProps.inline === true
             );
         }
     }

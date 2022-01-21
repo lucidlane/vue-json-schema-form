@@ -771,7 +771,7 @@ schema = {
 // 默认值
 formProps = {
     layoutColumn: 1, // 1 2 3 ，支持 1 2 3 列布局，如果使用inline表单这里配置无效
-    inline: false, // 行内表单模式
+    inline: false, // 行内表单模式，建议：开启时labelPosition不要配置top, antd不要配置labelCol wrapperCol
     inlineFooter: false, // 如果想要保存按钮和表单元素一行显示，需要配置 true
     labelSuffix: '：', // label后缀
     labelPosition: 'top', // 表单域标签的位置
@@ -903,7 +903,16 @@ vue3的版本中为 `form-mounted`，去掉 `on` 前缀
 :::
 
 ## 方法 Methods
--- 无
+- 无
+
+## 属性 Attrs
+### $$uiFormRef
+`1.10` 版本新增，在旧版本需要在[on-form-mounted](#on-form-mounted)中获ui框架form实例
+* 方便直接获取ui框架form组件实例
+
+::: warning
+* 注：`mounted` 之后才会设置该属性
+:::
 
 ## 插槽 Scope-Slot
 * name `default`，自定义form 包含内容，配置后会覆盖默认 `form-footer`

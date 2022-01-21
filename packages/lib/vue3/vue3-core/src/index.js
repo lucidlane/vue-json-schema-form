@@ -34,9 +34,9 @@ export default function createForm(globalOptions = {}) {
         props: vueProps,
         emits: ['update:modelValue', 'change', 'cancel', 'submit', 'validation-failed', 'form-mounted'],
         setup(props, { slots, emit }) {
+            // global components
+            const internalInstance = getCurrentInstance();
             if (!Form.installed && globalOptions.WIDGET_MAP.widgetComponents) {
-                // global components
-                const internalInstance = getCurrentInstance();
                 Object.entries(globalOptions.WIDGET_MAP.widgetComponents).forEach(
                     ([componentName, component]) => internalInstance.appContext.app.component(componentName, component)
                 );
@@ -141,7 +141,7 @@ export default function createForm(globalOptions = {}) {
 
             return () => {
                 const {
-                    layoutColumn = 1, inlineFooter, inline, ...otherFormProps
+                    layoutColumn = 1, inlineFooter, ...otherFormProps
                 } = props.formProps;
                 const schemaProps = {
                     schema: props.schema,
@@ -160,6 +160,7 @@ export default function createForm(globalOptions = {}) {
                     }
                 };
 
+                const inline = otherFormProps.inline;
                 return h(
                     resolveComponent(globalOptions.COMPONENT_MAP.form),
                     {
@@ -173,6 +174,8 @@ export default function createForm(globalOptions = {}) {
                         },
                         setFormRef: (form) => {
                             formRef = form;
+                            internalInstance.ctx.$$uiFormRef = formRef;
+
                             emit('form-mounted', form, {
                                 formData: rootFormData.value
                             });

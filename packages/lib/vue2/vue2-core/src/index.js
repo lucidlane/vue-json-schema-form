@@ -104,6 +104,7 @@ export default function createForm(globalOptions = {}) {
             },
         },
         mounted() {
+            this.$$uiFormRef = this.$refs.genEditForm;
             this.$emit('on-form-mounted', this.$refs.genEditForm, {
                 formData: this.formData
             });
@@ -142,7 +143,7 @@ export default function createForm(globalOptions = {}) {
                     }) : undefined;
 
             const {
-                layoutColumn = 1, inlineFooter, inline, ...formProps
+                layoutColumn = 1, inlineFooter, ...formProps
             } = self.$props.formProps;
 
             const props = {
@@ -161,6 +162,8 @@ export default function createForm(globalOptions = {}) {
                     ...formProps,
                 }
             };
+
+            const inline = formProps.inline;
 
             return h(
                 globalOptions.COMPONENT_MAP.form,
