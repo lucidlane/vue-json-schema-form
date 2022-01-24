@@ -312,16 +312,4 @@
             flex-basis: 33.333%;
         }
     }
-    &.layoutColumn-4 {
-        .fieldGroupWrap_box>.genFormItem{
-            width: 25%;
-            flex-basis: 25%;
-        }
-    }
-    &.layoutColumn-5 {
-        .fieldGroupWrap_box>.genFormItem{
-            width: 20%;
-            flex-basis: 20%;
-        }
-    }
 }
