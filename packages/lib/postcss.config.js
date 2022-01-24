@@ -6,24 +6,23 @@
 module.exports = {
     plugins: [
         require('postcss-import')({
-            path: ['src/common/css/'],
+            path: ['src/common/css/']
         }),
         require('postcss-mixins'),
-        require('postcss-for'),
         require('postcss-nested'),
         require('postcss-color-mod-function'),
         require('postcss-cssnext')({
-            warnForDuplicates: false,
+            warnForDuplicates: false
         }),
         require('cssnano')({
             sourcemap: false,
             autoprefixer: false,
             safe: true,
             discardComments: {
-                removeAll: true,
+                removeAll: true
             },
             discardUnused: false,
-            zindex: false,
-        }),
+            zindex: false
+        })
     ]
 };
