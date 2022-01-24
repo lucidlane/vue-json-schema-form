@@ -347,7 +347,7 @@
     @for $i from 1 to 10 {
         &.layoutGrid-$i {
             grid-template-columns: repeat($i, 1fr);
-            .arrayDataList {
+            .arrayDataList, .arrayField {
                 grid-column: 1 / span $i;
             }
         }
