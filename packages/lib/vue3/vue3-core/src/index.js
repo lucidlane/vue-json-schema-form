@@ -141,7 +141,7 @@ export default function createForm(globalOptions = {}) {
 
             return () => {
                 const {
-                    layoutColumn, layoutGrid, inlineFooter, ...otherFormProps
+                    layoutColumn = 1, inlineFooter, ...otherFormProps
                 } = props.formProps;
                 const schemaProps = {
                     schema: props.schema,
@@ -161,14 +161,6 @@ export default function createForm(globalOptions = {}) {
                 };
 
                 const inline = otherFormProps.inline;
-                let layout = '';
-                if (inline) {
-                    layout = 'inline';
-                } else if (layoutColumn) {
-                    layout = 'flex';
-                } else if (layoutGrid) {
-                    layout = 'grid';
-                }
                 return h(
                     resolveComponent(globalOptions.COMPONENT_MAP.form),
                     {
@@ -177,10 +169,8 @@ export default function createForm(globalOptions = {}) {
                             formInlineFooter: inlineFooter,
                             formInline: inline,
                             [`genFromComponent_${props.schema.id}Form`]: !!props.schema.id,
-                            layoutColumn: layout === 'column',
-                            [`layoutColumn-${layoutColumn}`]: layout === 'column',
-                            layoutGrid: layout === 'grid',
-                            [`layoutGrid-${layoutGrid}`]: layout === 'grid'
+                            layoutColumn: !inline,
+                            [`layoutColumn-${layoutColumn}`]: !inline
                         },
                         setFormRef: (form) => {
                             formRef = form;

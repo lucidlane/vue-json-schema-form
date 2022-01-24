@@ -143,7 +143,7 @@ export default function createForm(globalOptions = {}) {
                     }) : undefined;
 
             const {
-                layoutColumn, layoutGrid, inlineFooter, ...formProps
+                layoutColumn = 1, inlineFooter, ...formProps
             } = self.$props.formProps;
 
             const props = {
@@ -165,15 +165,6 @@ export default function createForm(globalOptions = {}) {
 
             const inline = formProps.inline;
 
-            let layout = '';
-            if (inline) {
-                layout = 'inline';
-            } else if (layoutColumn) {
-                layout = 'flex';
-            } else if (layoutGrid) {
-                layout = 'grid';
-            }
-
             return h(
                 globalOptions.COMPONENT_MAP.form,
                 {
@@ -182,10 +173,8 @@ export default function createForm(globalOptions = {}) {
                         formInlineFooter: inlineFooter,
                         formInline: inline,
                         [`genFromComponent_${this.schema.id}Form`]: !!this.schema.id,
-                        layoutColumn: layout === 'column',
-                        [`layoutColumn-${layoutColumn}`]: layout === 'column',
-                        layoutGrid: layout === 'grid',
-                        [`layoutGrid-${layoutGrid}`]: layout === 'grid'
+                        layoutColumn: !inline,
+                        [`layoutColumn-${layoutColumn}`]: !inline
                     },
                     ref: 'genEditForm',
                     props: {
