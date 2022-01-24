@@ -326,12 +326,8 @@
     }
 }
 
-.layoutGrid {
-    .layoutColumn_w100 {
-        width: 100% !important;
-        flex-basis: 100% !important;;
-    }
-    .fieldGroupWrap_box {
+.grid-layout {
+    > .fieldGroupWrap_box {
         width: 100%;
         display: grid;
         gap: var(--width-column-gutter);
@@ -345,7 +341,7 @@
         }
     }
     @for $i from 1 to 10 {
-        &.layoutGrid-$i {
+        &.grid-layout-$i {
             grid-template-columns: repeat($i, 1fr);
             .arrayDataList, .arrayField {
                 &:not(.el-form-item) {
