@@ -38,12 +38,15 @@ export default {
             fieldClass,
             fieldAttrs,
             fieldStyle,
+            listRenderer
         } = getUiOptions({
             schema,
             uiSchema,
             curNodePath,
             rootFormData,
         });
+
+        let children = null;
 
         const arrayItemsVNodeList = itemsFormData.map((item, index) => {
             const tempUiSchema = replaceArrayIndex({
@@ -73,6 +76,33 @@ export default {
             };
         });
 
+        const mainProps = {
+            vNodeList: arrayItemsVNodeList,
+            showIndexNumber,
+            addable,
+            sortable,
+            removable,
+            maxItems: schema.maxItems,
+            minItems: schema.minItems,
+            globalOptions
+        };
+
+        if (listRenderer) {
+            children = h(listRenderer, {
+                props: { ...context.props, ...mainProps },
+                on: context.listeners
+            });
+        } else {
+
+            children = h(
+                ArrayOrderList,
+                {
+                    props: mainProps,
+                    on: context.listeners
+                }
+            );
+        }
+
         return h(
             FieldGroupWrap,
             {
@@ -90,24 +120,7 @@ export default {
                 attrs: fieldAttrs,
                 style: fieldStyle,
             },
-            [
-                h(
-                    ArrayOrderList,
-                    {
-                        props: {
-                            vNodeList: arrayItemsVNodeList,
-                            showIndexNumber,
-                            addable,
-                            sortable,
-                            removable,
-                            maxItems: schema.maxItems,
-                            minItems: schema.minItems,
-                            globalOptions
-                        },
-                        on: context.listeners
-                    }
-                )
-            ]
+            [children]
         );
     }
 };

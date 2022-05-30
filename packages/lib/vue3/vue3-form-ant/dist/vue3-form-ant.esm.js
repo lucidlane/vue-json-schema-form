@@ -1,4 +1,4 @@
-/** @license @lljj/vue3-form-ant (c) 2020-2021 Liu.Jun License: Apache-2.0 */
+/** @license @lljj/vue3-form-ant (c) 2020-2022 Liu.Jun License: Apache-2.0 */
 import { resolveComponent as resolveComponent$1, h, openBlock, createBlock, toDisplayString, createCommentVNode, createVNode, renderSlot, inject, computed, ref as ref$1, watch, toRaw, getCurrentInstance, provide, defineComponent, onMounted } from 'vue';
 
 function _typeof(obj) {
@@ -8404,8 +8404,8 @@ function handleExpression(rootFormData, curNodePath, expression, fallBack) {
   if (matchExpression) {
     var code = matchExpression[1].trim(); // eslint-disable-next-line no-new-func
 
-    var fn = new Function('parentFormData', 'rootFormData', "return ".concat(code));
-    return fn(getPathVal(rootFormData, curNodePath, 1), rootFormData);
+    var fn = new Function('parentFormData', 'rootFormData', 'curNodePath', 'getPathVal', "return ".concat(code));
+    return fn(getPathVal(rootFormData, curNodePath, 1), rootFormData, curNodePath, getPathVal);
   } // 回退
 
 
