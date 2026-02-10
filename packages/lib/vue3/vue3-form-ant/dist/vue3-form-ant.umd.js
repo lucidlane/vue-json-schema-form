@@ -1,4 +1,4 @@
-/** @license @lljj/vue3-form-ant (c) 2020-2021 Liu.Jun License: Apache-2.0 */
+/** @license @lljj/vue3-form-ant (c) 2020-2022 Liu.Jun License: Apache-2.0 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
   typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
@@ -8408,8 +8408,8 @@
     if (matchExpression) {
       var code = matchExpression[1].trim(); // eslint-disable-next-line no-new-func
 
-      var fn = new Function('parentFormData', 'rootFormData', "return ".concat(code));
-      return fn(getPathVal(rootFormData, curNodePath, 1), rootFormData);
+      var fn = new Function('parentFormData', 'rootFormData', 'curNodePath', 'getPathVal', "return ".concat(code));
+      return fn(getPathVal(rootFormData, curNodePath, 1), rootFormData, curNodePath, getPathVal);
     } // 回退
 
 

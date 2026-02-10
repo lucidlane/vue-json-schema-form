@@ -1,4 +1,4 @@
-/** @license @lljj/vue-json-schema-form (c) 2020-2021 Liu.Jun License: Apache-2.0 */
+/** @license @lljj/vue-json-schema-form (c) 2020-2022 Liu.Jun License: Apache-2.0 */
 import Vue from 'vue';
 
 function _typeof(obj) {
@@ -8406,8 +8406,8 @@ function handleExpression(rootFormData, curNodePath, expression, fallBack) {
   if (matchExpression) {
     var code = matchExpression[1].trim(); // eslint-disable-next-line no-new-func
 
-    var fn = new Function('parentFormData', 'rootFormData', "return ".concat(code));
-    return fn(getPathVal$1(rootFormData, curNodePath, 1), rootFormData);
+    var fn = new Function('parentFormData', 'rootFormData', 'curNodePath', 'getPathVal', "return ".concat(code));
+    return fn(getPathVal$1(rootFormData, curNodePath, 1), rootFormData, curNodePath, getPathVal$1);
   } // 回退
 
 
@@ -10845,8 +10845,10 @@ var ArrayFieldNormal = {
         showDescription = _getUiOptions.showDescription,
         fieldClass = _getUiOptions.fieldClass,
         fieldAttrs = _getUiOptions.fieldAttrs,
-        fieldStyle = _getUiOptions.fieldStyle;
+        fieldStyle = _getUiOptions.fieldStyle,
+        listRenderer = _getUiOptions.listRenderer;
 
+    var children = null;
     var arrayItemsVNodeList = itemsFormData.map(function (item, index) {
       var tempUiSchema = replaceArrayIndex({
         schema: schema.items,
@@ -10866,6 +10868,29 @@ var ArrayFieldNormal = {
         })
       };
     });
+    var mainProps = {
+      vNodeList: arrayItemsVNodeList,
+      showIndexNumber: showIndexNumber,
+      addable: addable,
+      sortable: sortable,
+      removable: removable,
+      maxItems: schema.maxItems,
+      minItems: schema.minItems,
+      globalOptions: globalOptions
+    };
+
+    if (listRenderer) {
+      children = h(listRenderer, {
+        props: _objectSpread2(_objectSpread2({}, context.props), mainProps),
+        on: context.listeners
+      });
+    } else {
+      children = h(ArrayOrderList, {
+        props: mainProps,
+        on: context.listeners
+      });
+    }
+
     return h(__vue_component__, {
       props: {
         title: title,
@@ -10877,19 +10902,7 @@ var ArrayFieldNormal = {
       class: _objectSpread2(_objectSpread2({}, context.data.class), fieldClass),
       attrs: fieldAttrs,
       style: fieldStyle
-    }, [h(ArrayOrderList, {
-      props: {
-        vNodeList: arrayItemsVNodeList,
-        showIndexNumber: showIndexNumber,
-        addable: addable,
-        sortable: sortable,
-        removable: removable,
-        maxItems: schema.maxItems,
-        minItems: schema.minItems,
-        globalOptions: globalOptions
-      },
-      on: context.listeners
-    })]);
+    }, [children]);
   }
 };
 
